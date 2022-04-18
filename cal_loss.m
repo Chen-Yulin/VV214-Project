@@ -18,13 +18,17 @@ function Loss = cal_loss(measured_height, measured_width)
     plot(tailored_height);
     plot(dataSet.Circle_h);
     axis([1 72 0.9 1.45]);
+    xlabel('rotation-angle_{x5degree}');
+    ylabel('ratio')
     hold off;
+    title('Circle width comparation ');
     subplot(2,6,7);
     hold on;
     plot(tailored_width);
     plot(dataSet.Circle_w);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Circle height comparation ');
     
     %cal the probability for Tri
     tri_loss = L2_lossFunction(dataSet.Tri_h,tailored_height)+L2_lossFunction(dataSet.Tri_w,tailored_width);
@@ -35,12 +39,14 @@ function Loss = cal_loss(measured_height, measured_width)
     plot(dataSet.Tri_h);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Triangle width comparation ');
     subplot(2,6,8);
     hold on;
     plot(tailored_width);
     plot(dataSet.Tri_w);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Triangle height comparation ');
     
     %cal the probability for Sqr
     sqr_loss = L2_lossFunction(dataSet.Sqr_h,tailored_height)+L2_lossFunction(dataSet.Sqr_w,tailored_width);
@@ -51,12 +57,14 @@ function Loss = cal_loss(measured_height, measured_width)
     plot(dataSet.Sqr_h);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Square width comparation ');
     subplot(2,6,9);
     hold on;
     plot(tailored_width);
     plot(dataSet.Sqr_w);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Square height comparation ')
     
     %cal the probability for Pent
     pent_loss = min(L2_lossFunction(dataSet.Pent_1_h,tailored_height)+L2_lossFunction(dataSet.Pent_1_w,tailored_width),L2_lossFunction(dataSet.Pent_2_h,tailored_height)+L2_lossFunction(dataSet.Pent_2_w,tailored_width));
@@ -67,12 +75,14 @@ function Loss = cal_loss(measured_height, measured_width)
     plot(dataSet.Pent_1_h);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Pentagon_1 width comparation ');
     subplot(2,6,10);
     hold on;
     plot(tailored_width);
     plot(dataSet.Pent_1_w);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Pentagon_1 height comparation ');
     
     subplot(2,6,5);
     hold on;
@@ -80,12 +90,14 @@ function Loss = cal_loss(measured_height, measured_width)
     plot(dataSet.Pent_2_h);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Pentagon_2 width comparation ');
     subplot(2,6,11);
     hold on;
     plot(tailored_width);
     plot(dataSet.Pent_2_w);
     axis([1 72 0.9 1.45]);
     hold off;
+    title('Pentagon_2 height comparation ');
     
     
     Loss = [cir_loss, tri_loss, sqr_loss, pent_loss];

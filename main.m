@@ -1,4 +1,4 @@
-img = imread('img\test0.png');
+img = imread('img\test3_1.png');
 img_grey = rgb2gray(img);
 %imshow(michy_grey);
 %mean_graph = MeanValBlur(michy_grey);
@@ -10,9 +10,9 @@ box_width = zeros(72,1);
 res_sobelx = sobelx(img_grey);
 res_sobely = sobely(img_grey);
 gradient_graph = findGradient(res_sobelx,res_sobely);
-%imshow(gradient_graph(:,:,1));
+imshow(gradient_graph(:,:,1));
 contour_graph = NMS(gradient_graph);
-contour_graph = threshold(contour_graph,0.07,0.2);
+contour_graph = threshold(contour_graph,0.06,0.1);
 %imshow(contour_graph);
 for i = 0:5:355
     contour_rotate = imRotate(contour_graph,i);
