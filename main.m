@@ -1,4 +1,4 @@
-img = imread('img\test3_1.png');
+img = imread('img\test5.png');
 img_grey = rgb2gray(img);
 %imshow(michy_grey);
 %mean_graph = MeanValBlur(michy_grey);
@@ -27,7 +27,7 @@ box_width = box_width./min(box_heigth);
 box_heigth = box_heigth./min(box_heigth);
 
 loss = cal_loss(box_heigth,box_width);
-probability = 0.05.^(5*loss);
+probability = 0.368.^(5*loss);
 probability = probability./sum(probability).*100;
 result = find(loss == min(loss));
 fprintf('the probability of the shape for the picture is:\n');
